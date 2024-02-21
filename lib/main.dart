@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:todoapp/splash_screen.dart';
 import '../data/hive_data_store.dart';
 import '../models/task.dart';
 import '../view/home/home_view.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 Future<void> main() async {
   await Hive.initFlutter();
@@ -89,6 +91,22 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        home: const HomeView());
+        home: Builder(builder: (context) {
+          return AnimatedSplashScreen(
+            splashIconSize: 800,
+            splashTransition: SplashTransition.fadeTransition,
+            backgroundColor: Colors.black,
+            splash: Container(
+              margin: EdgeInsets.all(10),
+              alignment: Alignment.center,
+              child: Image.asset(
+                "assets/img/zeelogo1.png",
+                height: 800,
+                width: 800,
+              ),
+            ),
+            nextScreen: HomeView(),
+          );
+        }));
   }
 }

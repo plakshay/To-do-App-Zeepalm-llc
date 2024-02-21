@@ -97,8 +97,8 @@ class _HomeViewState extends State<HomeView> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: 25,
-                  height: 25,
+                  width: 70,
+                  height: 70,
                   child: CircularProgressIndicator(
                     valueColor:
                         const AlwaysStoppedAnimation(MyColors.primaryColor),
